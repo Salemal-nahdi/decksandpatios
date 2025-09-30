@@ -307,6 +307,7 @@ h3 { font-size: clamp(1.5rem, 3vw, 2rem); }
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: 1 !important; /* Force full visibility */
 }
 
 .hero-inner {

@@ -86,17 +86,13 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     });
     
-    // Subtle parallax effect for hero
+    // Hero content (no fading)
     const heroContent = document.querySelector('.hero-content');
     
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        
-        if (heroContent && scrolled < window.innerHeight) {
-            const opacity = Math.max(0.3, 1 - (scrolled / window.innerHeight) * 0.7);
-            heroContent.style.opacity = opacity;
-        }
-    });
+    // Ensure hero content is always fully visible
+    if (heroContent) {
+        heroContent.style.opacity = 1;
+    }
     
     // Intersection Observer for animations
     const observerOptions = {
