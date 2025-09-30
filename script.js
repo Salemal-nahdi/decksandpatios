@@ -233,37 +233,27 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // Form handling
+    // Form handling with Netlify integration
     const contactForm = document.getElementById('contactForm');
     
-    contactForm.addEventListener('submit', async (e) => {
-        e.preventDefault();
-        
-        // Get form data
-        const formData = new FormData(contactForm);
-        const data = Object.fromEntries(formData);
-        
-        // Add loading state
-        const submitBtn = contactForm.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.textContent = 'Sending...';
-        submitBtn.disabled = true;
-        
-        // Simulate form submission (replace with actual endpoint)
-        setTimeout(() => {
-            // Success message
-            submitBtn.textContent = '✓ Sent Successfully!';
-            submitBtn.style.background = 'var(--gradient)';
+    if (contactForm) {
+        contactForm.addEventListener('submit', async (e) => {
+            // Let Netlify handle the form submission
+            // We don't prevent default here to allow Netlify to process the form
             
-            // Reset form
-            setTimeout(() => {
-                contactForm.reset();
-                submitBtn.textContent = originalText;
-                submitBtn.disabled = false;
-                submitBtn.style.background = '';
-            }, 3000);
-        }, 1500);
-    });
+            // Add loading state
+            const submitBtn = contactForm.querySelector('button[type="submit"]');
+            const originalBtnContent = submitBtn.innerHTML;
+            const loadingText = 'Sending...';
+            
+            // Store original button content and update with loading state
+            submitBtn.innerHTML = `<span>${loadingText}</span>`;
+            submitBtn.disabled = true;
+            
+            // We don't need the setTimeout anymore as Netlify will handle the submission
+            // The page will be redirected to a success page or will show Netlify's default success message
+        });
+    }
     
     // Number counter animation
     const stats = document.querySelectorAll('.stat-number');

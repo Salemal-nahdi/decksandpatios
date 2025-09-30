@@ -582,7 +582,11 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm">
+                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success">
+                    <input type="hidden" name="form-name" value="contact" />
+                    <p class="hidden">
+                        <label>Don't fill this out if you're human: <input name="bot-field" /></label>
+                    </p>
                     <div class="form-row">
                         <input type="text" name="name" placeholder="Your Name" required>
                         <input type="tel" name="phone" placeholder="Phone Number" required>
