@@ -18,12 +18,8 @@ document.addEventListener('DOMContentLoaded', function() {
             header.classList.remove('scrolled');
         }
         
-        // Hide/show header on scroll
-        if (currentScroll > lastScroll && currentScroll > 300) {
-            header.style.transform = 'translateY(-100%)';
-        } else {
-            header.style.transform = 'translateY(0)';
-        }
+        // Always keep header visible
+        header.style.transform = 'translateY(0)';
         
         lastScroll = currentScroll;
     });
