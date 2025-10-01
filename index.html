@@ -579,7 +579,7 @@
                     </div>
                 </div>
                 
-                <form class="contact-form" id="contactForm" name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="/success">
+                <form class="contact-form" id="contactForm" name="contact" method="POST" netlify-honeypot="bot-field" action="/success">
                     <input type="hidden" name="form-name" value="contact" />
                     <p class="hidden">
                         <label>Don't fill this out if you're human: <input name="bot-field" /></label>
@@ -663,6 +663,21 @@
         <img src="" alt="" class="lightbox-image">
         <div class="lightbox-caption"></div>
     </div>
+
+    <!-- Netlify Form Detection (Hidden) -->
+    <form name="contact" netlify netlify-honeypot="bot-field" hidden>
+        <input type="text" name="name" />
+        <input type="tel" name="phone" />
+        <input type="email" name="email" />
+        <input type="text" name="suburb" />
+        <select name="service">
+            <option value="deck">New Deck</option>
+            <option value="patio">Patio/Pergola</option>
+            <option value="restoration">Restoration</option>
+            <option value="other">Other/Multiple Services</option>
+        </select>
+        <textarea name="message"></textarea>
+    </form>
 
     <!-- Scripts -->
     <script src="script.js"></script>
